@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.dicoding.tourismapp.core"
+    namespace = "com.rif.glorygames.core"
     compileSdk = 34
 
     defaultConfig {

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.tourismapp.core.ui.TourismAdapter
+import com.rif.glorygames.core.ui.TourismAdapter
 import com.rif.glorygames.databinding.FragmentFavoriteBinding
 import com.rif.glorygames.detail.DetailTourismActivity
 import dagger.hilt.android.AndroidEntryPoint

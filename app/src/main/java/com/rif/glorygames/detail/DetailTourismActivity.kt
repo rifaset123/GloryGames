@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.dicoding.tourismapp.core.domain.model.Tourism
+import com.rif.glorygames.core.domain.model.Tourism
 import com.rif.glorygames.R
 import com.rif.glorygames.databinding.ActivityDetailTourismBinding
 import dagger.hilt.android.AndroidEntryPoint
