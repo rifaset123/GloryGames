@@ -7,19 +7,19 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.rif.glorygames.core.domain.model.Game
 import com.rif.glorygames.R
-import com.rif.glorygames.databinding.ActivityDetailTourismBinding
+import com.rif.glorygames.databinding.ActivityDetailGameBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailGameActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDetailTourismBinding
+    private lateinit var binding: ActivityDetailGameBinding
 
     private val detailGameViewModel: DetailGameViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailTourismBinding.inflate(layoutInflater)
+        binding = ActivityDetailGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
@@ -30,7 +30,9 @@ class DetailGameActivity : AppCompatActivity() {
     private fun showDetailTourism(detailGame: Game?) {
         detailGame?.let {
             supportActionBar?.title = detailGame.name
-            binding.contentDetailTourism.tvDetailDescription.text = detailGame.releaseDate
+            binding.contentDetailTourism.tvDetailReleaseDate.text = detailGame.releaseDate
+            binding.contentDetailTourism.tvDetailPlaytimePlace.text = detailGame.playtime.toString()
+            binding.contentDetailTourism.tvDetailTotalRatingPlace.text = detailGame.ratingCount.toString()
             Glide.with(this@DetailGameActivity)
                 .load(detailGame.backgroundImage)
                 .into(binding.ivDetailImage)

@@ -9,13 +9,13 @@ import javax.inject.Singleton
 @Singleton
 class LocalDataSource @Inject constructor(private val gameDao: GameDao) {
 
-    fun getAllTourism(): Flow<List<GameEntity>> = gameDao.getAllTourism()
+    fun getAllGame(): Flow<List<GameEntity>> = gameDao.getAllTourism()
 
-    fun getFavoriteTourism(): Flow<List<GameEntity>> = gameDao.getFavoriteTourism()
+    fun getFavoriteGame(): Flow<List<GameEntity>> = gameDao.getFavoriteTourism()
 
-    suspend fun insertTourism(tourismList: List<GameEntity>) = gameDao.insertTourism(tourismList)
+    suspend fun insertGame(tourismList: List<GameEntity>) = gameDao.insertTourism(tourismList)
 
-    fun setFavoriteTourism(tourism: GameEntity, newState: Boolean) {
+    fun setFavoriteGame(tourism: GameEntity, newState: Boolean) {
         tourism.isFavorite = newState
         gameDao.updateFavoriteTourism(tourism)
     }

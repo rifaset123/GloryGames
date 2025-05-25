@@ -20,10 +20,10 @@ class GameRepository @Inject constructor(
     private val appExecutors: AppExecutors
 ) : IGameRepository {
 
-    override fun getAllTourism(): Flow<Resource<List<Game>>> =
+    override fun getAllGames(): Flow<Resource<List<Game>>> =
         object : NetworkBoundResource<List<Game>, List<GameResponse>>() {
             override fun loadFromDB(): Flow<List<Game>> {
-                return localDataSource.getAllTourism().map {
+                return localDataSource.getAllGame().map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
@@ -36,19 +36,19 @@ class GameRepository @Inject constructor(
 
             override suspend fun saveCallResult(data: List<GameResponse>) {
                 val tourismList = DataMapper.mapResponsesToEntities(data)
-                localDataSource.insertTourism(tourismList)
+                localDataSource.insertGame(tourismList)
             }
         }.asFlow()
 
-    override fun getFavoriteTourism(): Flow<List<Game>> {
-        return localDataSource.getFavoriteTourism().map {
+    override fun getFavoriteGames(): Flow<List<Game>> {
+        return localDataSource.getFavoriteGame().map {
            DataMapper.mapEntitiesToDomain(it)
         }
     }
 
-    override fun setFavoriteTourism(game: Game, state: Boolean) {
+    override fun setFavoriteGames(game: Game, state: Boolean) {
         val tourismEntity = DataMapper.mapDomainToEntity(game)
-        appExecutors.diskIO().execute { localDataSource.setFavoriteTourism(tourismEntity, state) }
+        appExecutors.diskIO().execute { localDataSource.setFavoriteGame(tourismEntity, state) }
     }
 }
 

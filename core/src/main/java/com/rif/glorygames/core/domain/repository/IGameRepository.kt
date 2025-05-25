@@ -5,9 +5,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface IGameRepository {
 
-    fun getAllTourism(): Flow<com.rif.glorygames.core.data.Resource<List<Game>>>
+    fun getAllGames(): Flow<com.rif.glorygames.core.data.Resource<List<Game>>>
 
-    fun getFavoriteTourism(): Flow<List<Game>>
+    fun getFavoriteGames(): Flow<List<Game>>
 
-    fun setFavoriteTourism(game: Game, state: Boolean)
+    fun setFavoriteGames(game: Game, state: Boolean)
 }

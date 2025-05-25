@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/image_description"
+                android:alpha="0.8"
                 android:scaleType="centerCrop" />
 
             <androidx.appcompat.widget.Toolbar
@@ -41,7 +42,21 @@
 
     <include
         android:id="@+id/content_detail_tourism"
-        layout="@layout/content_detail_tourism" />
+        layout="@layout/content_detail_game" />
+
+    <ImageView
+        android:id="@+id/rectangle_transparent"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/baseline_rectable_transparent"
+        android:layout_alignParentTop="true"
+        android:alpha="0.3"
+        android:backgroundTintMode="src_in"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="center|bottom"
+        android:shape="rectangle" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -50,7 +65,7 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email"
+        app:srcCompat="@drawable/ic_favorite_white"
         android:contentDescription="@string/menu_favorite" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
