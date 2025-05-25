@@ -5,15 +5,12 @@ import com.rif.glorygames.core.domain.usecase.GameUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class AppModule {
 
     @Binds
-    @ViewModelScoped
-    abstract fun provideTourismUseCase(gameInteractor: GameInteractor): GameUseCase
-
+    abstract fun provideGameUseCase(gameInteractor: GameInteractor): GameUseCase
 }

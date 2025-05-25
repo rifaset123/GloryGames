@@ -17,4 +17,5 @@
     <string name="text_rating">Rating :</string>
     <string name="text_detail_dummy">(API does not include description) lorem itsum dolor amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
     <string name="text_12_june_2025">12 June 2025</string>
+    <string name="title_favorite">Favorite</string>
 </resources>

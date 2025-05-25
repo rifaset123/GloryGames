@@ -8,6 +8,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(gameUseCase: GameUseCase) : ViewModel() {
-    val tourism = gameUseCase.getAllTourism().asLiveData()
+    val tourism = gameUseCase.getAllGame().asLiveData()
 }
 
