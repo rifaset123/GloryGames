@@ -31,10 +31,10 @@ class GameAdapter : ListAdapter<Game, GameAdapter.ListViewHolder>(DIFF_CALLBACK)
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Game) {
             Glide.with(itemView.context)
-                .load(data.image)
+                .load(data.backgroundImage)
                 .into(binding.ivItemImage)
             binding.tvItemTitle.text = data.name
-            binding.tvItemSubtitle.text = data.address
+            binding.tvItemSubtitle.text = data.releaseDate
         }
 
         init {

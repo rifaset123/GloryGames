@@ -4,6 +4,6 @@ import com.rif.glorygames.core.data.source.remote.response.ListGameResponse
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("list")
-    suspend fun getList(): ListGameResponse
+    @GET("games")
+    suspend fun getList(@retrofit2.http.Query("page_size") pageSize: Int): ListGameResponse
 }

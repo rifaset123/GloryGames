@@ -4,12 +4,15 @@ import com.google.gson.annotations.SerializedName
 
 data class ListGameResponse(
 
-    @field:SerializedName("error")
-    val error: Boolean,
+    @field:SerializedName("count")
+    val error: Int,
 
-    @field:SerializedName("message")
+    @field:SerializedName("next")
     val message: String,
 
-    @field:SerializedName("places")
-    val places: List<GameResponse>
+    @field:SerializedName("previous")
+    val previous: String,
+
+    @field:SerializedName("results")
+    val results: List<GameResponse>
 )

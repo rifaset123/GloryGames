@@ -11,13 +11,12 @@ object DataMapper {
             val game =
                 GameEntity(
                     gameId = it.id,
-                    description = it.description,
                     name = it.name,
-                    address = it.address,
-                    latitude = it.latitude,
-                    longitude = it.longitude,
-                    like = it.like,
-                    image = it.image,
+                    releaseDate = it.releaseDate,
+                    rating = it.rating,
+                    playtime = it.playtime,
+                    ratingCount = it.ratingCount,
+                    backgroundImage = it.backgroundImage,
                     isFavorite = false
                 )
             gameList.add(game)
@@ -29,13 +28,12 @@ object DataMapper {
         input.map {
             Game(
                 gameId = it.gameId,
-                description = it.description,
                 name = it.name,
-                address = it.address,
-                latitude = it.latitude,
-                longitude = it.longitude,
-                like = it.like,
-                image = it.image,
+                releaseDate = it.releaseDate ?: "To Be Announced",
+                rating = it.rating,
+                playtime = it.playtime,
+                ratingCount = it.ratingCount,
+                backgroundImage = it.backgroundImage,
                 isFavorite = it.isFavorite
             )
         }
@@ -43,13 +41,12 @@ object DataMapper {
     fun mapDomainToEntity(input: Game) =
         GameEntity(
             gameId = input.gameId,
-            description = input.description,
             name = input.name,
-            address = input.address,
-            latitude = input.latitude,
-            longitude = input.longitude,
-            like = input.like,
-            image = input.image,
+            releaseDate = input.releaseDate,
+            rating = input.rating,
+            playtime = input.playtime,
+            ratingCount = input.ratingCount,
+            backgroundImage = input.backgroundImage,
             isFavorite = input.isFavorite
         )
 }

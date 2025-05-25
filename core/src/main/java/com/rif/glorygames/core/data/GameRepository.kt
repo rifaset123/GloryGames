@@ -20,8 +20,8 @@ class GameRepository @Inject constructor(
     private val appExecutors: AppExecutors
 ) : IGameRepository {
 
-    override fun getAllTourism(): Flow<com.rif.glorygames.core.data.Resource<List<Game>>> =
-        object : com.rif.glorygames.core.data.NetworkBoundResource<List<Game>, List<GameResponse>>() {
+    override fun getAllTourism(): Flow<Resource<List<Game>>> =
+        object : NetworkBoundResource<List<Game>, List<GameResponse>>() {
             override fun loadFromDB(): Flow<List<Game>> {
                 return localDataSource.getAllTourism().map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -29,8 +29,7 @@ class GameRepository @Inject constructor(
             }
 
             override fun shouldFetch(data: List<Game>?): Boolean =
-                data.isNullOrEmpty() // mengambil data dari internet hanya jika data di database kosong
-//                 true // ganti dengan true jika ingin selalu mengambil data dari internet
+                data.isNullOrEmpty()
 
             override suspend fun createCall(): Flow<ApiResponse<List<GameResponse>>> =
                 remoteDataSource.getAllTourism()

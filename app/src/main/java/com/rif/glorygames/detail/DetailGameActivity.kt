@@ -30,9 +30,9 @@ class DetailGameActivity : AppCompatActivity() {
     private fun showDetailTourism(detailGame: Game?) {
         detailGame?.let {
             supportActionBar?.title = detailGame.name
-            binding.contentDetailTourism.tvDetailDescription.text = detailGame.description
+            binding.contentDetailTourism.tvDetailDescription.text = detailGame.releaseDate
             Glide.with(this@DetailGameActivity)
-                .load(detailGame.image)
+                .load(detailGame.backgroundImage)
                 .into(binding.ivDetailImage)
 
             var statusFavorite = detailGame.isFavorite

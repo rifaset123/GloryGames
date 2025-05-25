@@ -9,27 +9,24 @@ data class GameEntity(
     @PrimaryKey
     val gameId: String,
 
-    @ColumnInfo(name = "name")
+    @field:ColumnInfo(name = "name")
     val name: String,
 
-    @ColumnInfo(name = "description")
-    val description: String,
+    @field:ColumnInfo(name = "release_date")
+    val releaseDate: String? = null,
 
-    @ColumnInfo(name = "address")
-    val address: String,
+    @field:ColumnInfo(name = "rating")
+    val rating: Double,
 
-    @ColumnInfo(name = "latitude")
-    val latitude: Double,
+    @field:ColumnInfo(name = "playtime")
+    val playtime: Double,
 
-    @ColumnInfo(name = "longitude")
-    val longitude: Double,
+    @field:ColumnInfo(name = "rating_count")
+    val ratingCount: Int,
 
-    @ColumnInfo(name = "like")
-    val like: Int,
+    @field:ColumnInfo(name = "background_image")
+    val backgroundImage: String,
 
-    @ColumnInfo(name = "image")
-    val image: String,
-
-    @ColumnInfo(name = "isFavorite")
+    @field:ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean = false
 )

@@ -9,22 +9,19 @@ data class GameResponse(
     @field:SerializedName("name")
     val name: String,
 
-    @field:SerializedName("description")
-    val description: String,
+    @field:SerializedName("released")
+    val releaseDate: String,
 
-    @field:SerializedName("address")
-    val address: String,
+    @field:SerializedName("rating")
+    val rating: Double,
 
-    @field:SerializedName("longitude")
-    val longitude: Double,
+    @field:SerializedName("playtime")
+    val playtime: Double,
 
-    @field:SerializedName("latitude")
-    val latitude: Double,
+    @field:SerializedName("ratings_count")
+    val ratingCount: Int,
 
-    @field:SerializedName("like")
-    val like: Int,
-
-    @field:SerializedName("image")
-    val image: String
+    @field:SerializedName("background_image")
+    val backgroundImage: String
 )
 

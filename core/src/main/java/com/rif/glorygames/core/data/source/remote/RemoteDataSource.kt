@@ -15,13 +15,13 @@ import javax.inject.Singleton
 class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
 
     suspend fun getAllTourism(): Flow<ApiResponse<List<GameResponse>>> {
-        //get data from remote api
+        // fetch 10 data from api
         return flow {
             try {
-                val response = apiService.getList()
-                val dataArray = response.places
+                val response = apiService.getList(30)
+                val dataArray = response.results
                 if (dataArray.isNotEmpty()){
-                    emit(ApiResponse.Success(response.places))
+                    emit(ApiResponse.Success(response.results))
                 } else {
                     emit(ApiResponse.Empty)
                 }
