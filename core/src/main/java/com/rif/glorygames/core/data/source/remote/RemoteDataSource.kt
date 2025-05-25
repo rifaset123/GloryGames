@@ -3,7 +3,7 @@ package com.rif.glorygames.core.data.source.remote
 import android.util.Log
 import com.rif.glorygames.core.data.source.remote.network.ApiResponse
 import com.rif.glorygames.core.data.source.remote.network.ApiService
-import com.rif.glorygames.core.data.source.remote.response.TourismResponse
+import com.rif.glorygames.core.data.source.remote.response.GameResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -14,14 +14,14 @@ import javax.inject.Singleton
 @Singleton
 class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
 
-    suspend fun getAllTourism(): Flow<ApiResponse<List<TourismResponse>>> {
-        //get data from remote api
+    suspend fun getAllTourism(): Flow<ApiResponse<List<GameResponse>>> {
+        // fetch 10 data from api
         return flow {
             try {
-                val response = apiService.getList()
-                val dataArray = response.places
+                val response = apiService.getList(30)
+                val dataArray = response.results
                 if (dataArray.isNotEmpty()){
-                    emit(ApiResponse.Success(response.places))
+                    emit(ApiResponse.Success(response.results))
                 } else {
                     emit(ApiResponse.Empty)
                 }

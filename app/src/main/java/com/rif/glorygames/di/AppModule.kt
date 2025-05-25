@@ -1,7 +1,7 @@
 package com.rif.glorygames.di
 
-import com.rif.glorygames.core.domain.usecase.TourismInteractor
-import com.rif.glorygames.core.domain.usecase.TourismUseCase
+import com.rif.glorygames.core.domain.usecase.GameInteractor
+import com.rif.glorygames.core.domain.usecase.GameUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,6 +14,6 @@ abstract class AppModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun provideTourismUseCase(tourismInteractor: TourismInteractor): TourismUseCase
+    abstract fun provideTourismUseCase(gameInteractor: GameInteractor): GameUseCase
 
 }

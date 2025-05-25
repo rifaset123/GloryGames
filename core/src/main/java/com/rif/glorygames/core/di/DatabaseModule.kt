@@ -2,8 +2,8 @@ package com.rif.glorygames.core.di
 
 import android.content.Context
 import androidx.room.Room
-import com.rif.glorygames.core.data.source.local.room.TourismDao
-import com.rif.glorygames.core.data.source.local.room.TourismDatabase
+import com.rif.glorygames.core.data.source.local.room.GameDao
+import com.rif.glorygames.core.data.source.local.room.GameDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,11 +17,11 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext context: Context): TourismDatabase = Room.databaseBuilder(
+    fun provideDatabase(@ApplicationContext context: Context): GameDatabase = Room.databaseBuilder(
         context,
-        TourismDatabase::class.java, "Tourism.db"
+        GameDatabase::class.java, "Games.db"
     ).fallbackToDestructiveMigration().build()
 
     @Provides
-    fun provideTourismDao(database: TourismDatabase): TourismDao = database.tourismDao()
+    fun provideTourismDao(database: GameDatabase): GameDao = database.gameDao()
 }

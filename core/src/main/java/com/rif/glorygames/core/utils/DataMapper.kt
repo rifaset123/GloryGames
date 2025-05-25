@@ -1,55 +1,52 @@
 package com.rif.glorygames.core.utils
 
-import com.rif.glorygames.core.data.source.local.entity.TourismEntity
-import com.rif.glorygames.core.data.source.remote.response.TourismResponse
-import com.rif.glorygames.core.domain.model.Tourism
+import com.rif.glorygames.core.data.source.local.entity.GameEntity
+import com.rif.glorygames.core.data.source.remote.response.GameResponse
+import com.rif.glorygames.core.domain.model.Game
 
 object DataMapper {
-    fun mapResponsesToEntities(input: List<TourismResponse>): List<TourismEntity> {
-        val tourismList = ArrayList<TourismEntity>()
+    fun mapResponsesToEntities(input: List<GameResponse>): List<GameEntity> {
+        val gameList = ArrayList<GameEntity>()
         input.map {
-            val tourism =
-                TourismEntity(
-                    tourismId = it.id,
-                    description = it.description,
+            val game =
+                GameEntity(
+                    gameId = it.id,
                     name = it.name,
-                    address = it.address,
-                    latitude = it.latitude,
-                    longitude = it.longitude,
-                    like = it.like,
-                    image = it.image,
+                    releaseDate = it.releaseDate,
+                    rating = it.rating,
+                    playtime = it.playtime,
+                    ratingCount = it.ratingCount,
+                    backgroundImage = it.backgroundImage,
                     isFavorite = false
                 )
-            tourismList.add(tourism)
+            gameList.add(game)
         }
-        return tourismList
+        return gameList
     }
 
-    fun mapEntitiesToDomain(input: List<TourismEntity>): List<Tourism> =
+    fun mapEntitiesToDomain(input: List<GameEntity>): List<Game> =
         input.map {
-            Tourism(
-                tourismId = it.tourismId,
-                description = it.description,
+            Game(
+                gameId = it.gameId,
                 name = it.name,
-                address = it.address,
-                latitude = it.latitude,
-                longitude = it.longitude,
-                like = it.like,
-                image = it.image,
+                releaseDate = it.releaseDate ?: "To Be Announced",
+                rating = it.rating,
+                playtime = it.playtime,
+                ratingCount = it.ratingCount,
+                backgroundImage = it.backgroundImage,
                 isFavorite = it.isFavorite
             )
         }
 
-    fun mapDomainToEntity(input: Tourism) =
-        TourismEntity(
-            tourismId = input.tourismId,
-            description = input.description,
+    fun mapDomainToEntity(input: Game) =
+        GameEntity(
+            gameId = input.gameId,
             name = input.name,
-            address = input.address,
-            latitude = input.latitude,
-            longitude = input.longitude,
-            like = input.like,
-            image = input.image,
+            releaseDate = input.releaseDate,
+            rating = input.rating,
+            playtime = input.playtime,
+            ratingCount = input.ratingCount,
+            backgroundImage = input.backgroundImage,
             isFavorite = input.isFavorite
         )
 }

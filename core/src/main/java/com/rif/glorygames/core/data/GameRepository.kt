@@ -3,9 +3,9 @@ package com.rif.glorygames.core.data
 import com.rif.glorygames.core.data.source.local.LocalDataSource
 import com.rif.glorygames.core.data.source.remote.RemoteDataSource
 import com.rif.glorygames.core.data.source.remote.network.ApiResponse
-import com.rif.glorygames.core.data.source.remote.response.TourismResponse
-import com.rif.glorygames.core.domain.model.Tourism
-import com.rif.glorygames.core.domain.repository.ITourismRepository
+import com.rif.glorygames.core.data.source.remote.response.GameResponse
+import com.rif.glorygames.core.domain.model.Game
+import com.rif.glorygames.core.domain.repository.IGameRepository
 import com.rif.glorygames.core.utils.AppExecutors
 import com.rif.glorygames.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
@@ -14,41 +14,40 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class TourismRepository @Inject constructor(
+class GameRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
-) : ITourismRepository {
+) : IGameRepository {
 
-    override fun getAllTourism(): Flow<com.rif.glorygames.core.data.Resource<List<Tourism>>> =
-        object : com.rif.glorygames.core.data.NetworkBoundResource<List<Tourism>, List<TourismResponse>>() {
-            override fun loadFromDB(): Flow<List<Tourism>> {
+    override fun getAllTourism(): Flow<Resource<List<Game>>> =
+        object : NetworkBoundResource<List<Game>, List<GameResponse>>() {
+            override fun loadFromDB(): Flow<List<Game>> {
                 return localDataSource.getAllTourism().map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
 
-            override fun shouldFetch(data: List<Tourism>?): Boolean =
-                data.isNullOrEmpty() // mengambil data dari internet hanya jika data di database kosong
-//                 true // ganti dengan true jika ingin selalu mengambil data dari internet
+            override fun shouldFetch(data: List<Game>?): Boolean =
+                data.isNullOrEmpty()
 
-            override suspend fun createCall(): Flow<ApiResponse<List<TourismResponse>>> =
+            override suspend fun createCall(): Flow<ApiResponse<List<GameResponse>>> =
                 remoteDataSource.getAllTourism()
 
-            override suspend fun saveCallResult(data: List<TourismResponse>) {
+            override suspend fun saveCallResult(data: List<GameResponse>) {
                 val tourismList = DataMapper.mapResponsesToEntities(data)
                 localDataSource.insertTourism(tourismList)
             }
         }.asFlow()
 
-    override fun getFavoriteTourism(): Flow<List<Tourism>> {
+    override fun getFavoriteTourism(): Flow<List<Game>> {
         return localDataSource.getFavoriteTourism().map {
            DataMapper.mapEntitiesToDomain(it)
         }
     }
 
-    override fun setFavoriteTourism(tourism: Tourism, state: Boolean) {
-        val tourismEntity = DataMapper.mapDomainToEntity(tourism)
+    override fun setFavoriteTourism(game: Game, state: Boolean) {
+        val tourismEntity = DataMapper.mapDomainToEntity(game)
         appExecutors.diskIO().execute { localDataSource.setFavoriteTourism(tourismEntity, state) }
     }
 }
