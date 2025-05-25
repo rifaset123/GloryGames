@@ -6,11 +6,11 @@ import com.rif.glorygames.core.domain.model.Game
 
 object DataMapper {
     fun mapResponsesToEntities(input: List<GameResponse>): List<GameEntity> {
-        val tourismList = ArrayList<GameEntity>()
+        val gameList = ArrayList<GameEntity>()
         input.map {
-            val tourism =
+            val game =
                 GameEntity(
-                    tourismId = it.id,
+                    gameId = it.id,
                     description = it.description,
                     name = it.name,
                     address = it.address,
@@ -20,15 +20,15 @@ object DataMapper {
                     image = it.image,
                     isFavorite = false
                 )
-            tourismList.add(tourism)
+            gameList.add(game)
         }
-        return tourismList
+        return gameList
     }
 
     fun mapEntitiesToDomain(input: List<GameEntity>): List<Game> =
         input.map {
             Game(
-                tourismId = it.tourismId,
+                gameId = it.gameId,
                 description = it.description,
                 name = it.name,
                 address = it.address,
@@ -42,7 +42,7 @@ object DataMapper {
 
     fun mapDomainToEntity(input: Game) =
         GameEntity(
-            tourismId = input.tourismId,
+            gameId = input.gameId,
             description = input.description,
             name = input.name,
             address = input.address,

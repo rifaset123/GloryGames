@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Game(
-    val tourismId: String,
+    val gameId: String,
     val name: String,
     val description: String,
     val address: String,

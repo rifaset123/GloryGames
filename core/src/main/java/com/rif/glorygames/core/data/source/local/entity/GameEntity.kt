@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "games")
 data class GameEntity(
     @PrimaryKey
-    val tourismId: String,
+    val gameId: String,
 
     @ColumnInfo(name = "name")
     val name: String,

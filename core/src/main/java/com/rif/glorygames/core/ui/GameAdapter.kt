@@ -48,7 +48,7 @@ class GameAdapter : ListAdapter<Game, GameAdapter.ListViewHolder>(DIFF_CALLBACK)
         val DIFF_CALLBACK: DiffUtil.ItemCallback<Game> =
             object : DiffUtil.ItemCallback<Game>() {
                 override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean {
-                    return oldItem.tourismId == newItem.tourismId
+                    return oldItem.gameId == newItem.gameId
                 }
 
                 override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean {

@@ -19,9 +19,9 @@ class DatabaseModule {
     @Provides
     fun provideDatabase(@ApplicationContext context: Context): GameDatabase = Room.databaseBuilder(
         context,
-        GameDatabase::class.java, "Tourism.db"
+        GameDatabase::class.java, "Games.db"
     ).fallbackToDestructiveMigration().build()
 
     @Provides
-    fun provideTourismDao(database: GameDatabase): GameDao = database.tourismDao()
+    fun provideTourismDao(database: GameDatabase): GameDao = database.gameDao()
 }
