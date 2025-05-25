@@ -5,17 +5,17 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.rif.glorygames.core.domain.model.Tourism
+import com.rif.glorygames.core.domain.model.Game
 import com.rif.glorygames.R
 import com.rif.glorygames.databinding.ActivityDetailTourismBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailTourismActivity : AppCompatActivity() {
+class DetailGameActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailTourismBinding
 
-    private val detailTourismViewModel: DetailTourismViewModel by viewModels()
+    private val detailGameViewModel: DetailGameViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,23 +23,23 @@ class DetailTourismActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        val detailTourism = intent.getParcelableExtra<Tourism>(EXTRA_DATA)
-        showDetailTourism(detailTourism)
+        val detailGame = intent.getParcelableExtra<Game>(EXTRA_DATA)
+        showDetailTourism(detailGame)
     }
 
-    private fun showDetailTourism(detailTourism: Tourism?) {
-        detailTourism?.let {
-            supportActionBar?.title = detailTourism.name
-            binding.contentDetailTourism.tvDetailDescription.text = detailTourism.description
-            Glide.with(this@DetailTourismActivity)
-                .load(detailTourism.image)
+    private fun showDetailTourism(detailGame: Game?) {
+        detailGame?.let {
+            supportActionBar?.title = detailGame.name
+            binding.contentDetailTourism.tvDetailDescription.text = detailGame.description
+            Glide.with(this@DetailGameActivity)
+                .load(detailGame.image)
                 .into(binding.ivDetailImage)
 
-            var statusFavorite = detailTourism.isFavorite
+            var statusFavorite = detailGame.isFavorite
             setStatusFavorite(statusFavorite)
             binding.fab.setOnClickListener {
                 statusFavorite = !statusFavorite
-                detailTourismViewModel.setFavoriteTourism(detailTourism, statusFavorite)
+                detailGameViewModel.setFavoriteTourism(detailGame, statusFavorite)
                 setStatusFavorite(statusFavorite)
             }
         }

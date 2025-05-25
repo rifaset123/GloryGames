@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rif.glorygames.core.databinding.ItemListTourismBinding
-import com.rif.glorygames.core.domain.model.Tourism
+import com.rif.glorygames.core.domain.model.Game
 
-class TourismAdapter : ListAdapter<Tourism, TourismAdapter.ListViewHolder>(DIFF_CALLBACK) {
+class GameAdapter : ListAdapter<Game, GameAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
-    var onItemClick: ((Tourism) -> Unit)? = null
+    var onItemClick: ((Game) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ListViewHolder(
@@ -29,7 +29,7 @@ class TourismAdapter : ListAdapter<Tourism, TourismAdapter.ListViewHolder>(DIFF_
 
     inner class ListViewHolder(private var binding: ItemListTourismBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: Tourism) {
+        fun bind(data: Game) {
             Glide.with(itemView.context)
                 .load(data.image)
                 .into(binding.ivItemImage)
@@ -45,13 +45,13 @@ class TourismAdapter : ListAdapter<Tourism, TourismAdapter.ListViewHolder>(DIFF_
     }
 
     companion object {
-        val DIFF_CALLBACK: DiffUtil.ItemCallback<Tourism> =
-            object : DiffUtil.ItemCallback<Tourism>() {
-                override fun areItemsTheSame(oldItem: Tourism, newItem: Tourism): Boolean {
+        val DIFF_CALLBACK: DiffUtil.ItemCallback<Game> =
+            object : DiffUtil.ItemCallback<Game>() {
+                override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean {
                     return oldItem.tourismId == newItem.tourismId
                 }
 
-                override fun areContentsTheSame(oldItem: Tourism, newItem: Tourism): Boolean {
+                override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean {
                     return oldItem == newItem
                 }
             }

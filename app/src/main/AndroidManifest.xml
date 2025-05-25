@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".detail.DetailTourismActivity"
+            android:name=".detail.DetailGameActivity"
             android:label="@string/title_activity_detail_home"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

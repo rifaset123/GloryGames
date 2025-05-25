@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "tourism")
-data class TourismEntity(
+@Entity(tableName = "games")
+data class GameEntity(
     @PrimaryKey
     val tourismId: String,
 

@@ -1,22 +1,22 @@
 package com.rif.glorygames.core.data.source.local
 
-import com.rif.glorygames.core.data.source.local.entity.TourismEntity
-import com.rif.glorygames.core.data.source.local.room.TourismDao
+import com.rif.glorygames.core.data.source.local.entity.GameEntity
+import com.rif.glorygames.core.data.source.local.room.GameDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LocalDataSource @Inject constructor(private val tourismDao: TourismDao) {
+class LocalDataSource @Inject constructor(private val gameDao: GameDao) {
 
-    fun getAllTourism(): Flow<List<TourismEntity>> = tourismDao.getAllTourism()
+    fun getAllTourism(): Flow<List<GameEntity>> = gameDao.getAllTourism()
 
-    fun getFavoriteTourism(): Flow<List<TourismEntity>> = tourismDao.getFavoriteTourism()
+    fun getFavoriteTourism(): Flow<List<GameEntity>> = gameDao.getFavoriteTourism()
 
-    suspend fun insertTourism(tourismList: List<TourismEntity>) = tourismDao.insertTourism(tourismList)
+    suspend fun insertTourism(tourismList: List<GameEntity>) = gameDao.insertTourism(tourismList)
 
-    fun setFavoriteTourism(tourism: TourismEntity, newState: Boolean) {
+    fun setFavoriteTourism(tourism: GameEntity, newState: Boolean) {
         tourism.isFavorite = newState
-        tourismDao.updateFavoriteTourism(tourism)
+        gameDao.updateFavoriteTourism(tourism)
     }
 }

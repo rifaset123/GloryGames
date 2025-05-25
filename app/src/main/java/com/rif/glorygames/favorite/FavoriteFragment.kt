@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rif.glorygames.core.ui.TourismAdapter
+import com.rif.glorygames.core.ui.GameAdapter
 import com.rif.glorygames.databinding.FragmentFavoriteBinding
-import com.rif.glorygames.detail.DetailTourismActivity
+import com.rif.glorygames.detail.DetailGameActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,15 +33,15 @@ class FavoriteFragment : Fragment() {
 
         if (activity != null) {
 
-            val tourismAdapter = TourismAdapter()
-            tourismAdapter.onItemClick = { selectedData ->
-                val intent = Intent(activity, DetailTourismActivity::class.java)
-                intent.putExtra(DetailTourismActivity.EXTRA_DATA, selectedData)
+            val gameAdapter = GameAdapter()
+            gameAdapter.onItemClick = { selectedData ->
+                val intent = Intent(activity, DetailGameActivity::class.java)
+                intent.putExtra(DetailGameActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
 
             favoriteViewModel.favoriteTourism.observe(viewLifecycleOwner) { dataTourism ->
-                tourismAdapter.submitList(dataTourism)
+                gameAdapter.submitList(dataTourism)
                 binding.viewEmpty.root.visibility =
                     if (dataTourism.isNotEmpty()) View.GONE else View.VISIBLE
             }
@@ -49,7 +49,7 @@ class FavoriteFragment : Fragment() {
             with(binding.rvTourism) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
-                adapter = tourismAdapter
+                adapter = gameAdapter
             }
         }
     }

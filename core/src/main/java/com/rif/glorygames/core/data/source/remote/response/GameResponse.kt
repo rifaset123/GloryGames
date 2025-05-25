@@ -2,7 +2,7 @@ package com.rif.glorygames.core.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class TourismResponse(
+data class GameResponse(
     @field:SerializedName("id")
     val id: String,
 

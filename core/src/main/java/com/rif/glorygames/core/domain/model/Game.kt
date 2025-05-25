@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Tourism(
+data class Game(
     val tourismId: String,
     val name: String,
     val description: String,

@@ -1,9 +1,9 @@
 package com.rif.glorygames.core.di
 
-import com.rif.glorygames.core.data.TourismRepository
+import com.rif.glorygames.core.data.GameRepository
 import com.rif.glorygames.core.data.source.local.LocalDataSource
 import com.rif.glorygames.core.data.source.remote.RemoteDataSource
-import com.rif.glorygames.core.domain.repository.ITourismRepository
+import com.rif.glorygames.core.domain.repository.IGameRepository
 import com.rif.glorygames.core.utils.AppExecutors
 import dagger.Module
 import dagger.Provides
@@ -22,7 +22,7 @@ class RepositoryModule {
         remote: RemoteDataSource,
         local: LocalDataSource,
         executors: AppExecutors
-    ): ITourismRepository =
-        TourismRepository(remote, local, executors)
+    ): IGameRepository =
+        GameRepository(remote, local, executors)
 
 }

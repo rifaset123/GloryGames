@@ -1,15 +1,15 @@
 package com.rif.glorygames.core.utils
 
-import com.rif.glorygames.core.data.source.local.entity.TourismEntity
-import com.rif.glorygames.core.data.source.remote.response.TourismResponse
-import com.rif.glorygames.core.domain.model.Tourism
+import com.rif.glorygames.core.data.source.local.entity.GameEntity
+import com.rif.glorygames.core.data.source.remote.response.GameResponse
+import com.rif.glorygames.core.domain.model.Game
 
 object DataMapper {
-    fun mapResponsesToEntities(input: List<TourismResponse>): List<TourismEntity> {
-        val tourismList = ArrayList<TourismEntity>()
+    fun mapResponsesToEntities(input: List<GameResponse>): List<GameEntity> {
+        val tourismList = ArrayList<GameEntity>()
         input.map {
             val tourism =
-                TourismEntity(
+                GameEntity(
                     tourismId = it.id,
                     description = it.description,
                     name = it.name,
@@ -25,9 +25,9 @@ object DataMapper {
         return tourismList
     }
 
-    fun mapEntitiesToDomain(input: List<TourismEntity>): List<Tourism> =
+    fun mapEntitiesToDomain(input: List<GameEntity>): List<Game> =
         input.map {
-            Tourism(
+            Game(
                 tourismId = it.tourismId,
                 description = it.description,
                 name = it.name,
@@ -40,8 +40,8 @@ object DataMapper {
             )
         }
 
-    fun mapDomainToEntity(input: Tourism) =
-        TourismEntity(
+    fun mapDomainToEntity(input: Game) =
+        GameEntity(
             tourismId = input.tourismId,
             description = input.description,
             name = input.name,

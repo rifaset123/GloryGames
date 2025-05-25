@@ -2,7 +2,7 @@ package com.rif.glorygames.core.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class ListTourismResponse(
+data class ListGameResponse(
 
     @field:SerializedName("error")
     val error: Boolean,
@@ -11,5 +11,5 @@ data class ListTourismResponse(
     val message: String,
 
     @field:SerializedName("places")
-    val places: List<TourismResponse>
+    val places: List<GameResponse>
 )
