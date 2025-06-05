@@ -26,6 +26,11 @@ activity = "1.10.1"
 # v3 koin di
 koin = "3.5.6"
 
+# v3 security
+leakcanaryAndroid = "2.10"
+androidDatabaseSqlcipher = "4.5.4"
+sqliteKtx = "2.4.0"
+
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -56,6 +61,11 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 
 # v2 koin di
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+
+# v3 security
+leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanaryAndroid" }
+android-database-sqlcipher = { module = "net.zetetic:android-database-sqlcipher", version.ref = "androidDatabaseSqlcipher" }
+androidx-sqlite-ktx = { module = "androidx.sqlite:sqlite-ktx", version.ref = "sqliteKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

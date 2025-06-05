@@ -22,11 +22,15 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
@@ -58,4 +62,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     ksp(libs.hilt.android.compiler)
     implementation (libs.android.gif.drawable)
+
+    debugImplementation(libs.leakcanary.android)
 }

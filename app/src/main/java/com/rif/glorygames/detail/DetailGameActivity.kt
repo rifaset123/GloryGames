@@ -31,8 +31,9 @@ class DetailGameActivity : AppCompatActivity() {
         detailGame?.let {
             supportActionBar?.title = detailGame.name
             binding.contentDetailTourism.tvDetailReleaseDate.text = detailGame.releaseDate
-            binding.contentDetailTourism.tvDetailPlaytimePlace.text = detailGame.playtime.toString()
-            binding.contentDetailTourism.tvDetailTotalRatingPlace.text = detailGame.ratingCount.toString()
+            binding.contentDetailTourism.tvDetailRatingPlace.text = detailGame.rating.toString() + "/5"
+            binding.contentDetailTourism.tvDetailPlaytimePlace.text = detailGame.playtime.toString() + " Hour(s)"
+            binding.contentDetailTourism.tvDetailTotalRatingPlace.text = detailGame.ratingCount.toString() + " User(s)"
             Glide.with(this@DetailGameActivity)
                 .load(detailGame.backgroundImage)
                 .into(binding.ivDetailImage)

@@ -68,4 +68,7 @@ dependencies {
 
     implementation (libs.roundedimageview)
     implementation(libs.hilt.android)
+
+    implementation(libs.android.database.sqlcipher)
+    implementation(libs.androidx.sqlite.ktx)
 }
