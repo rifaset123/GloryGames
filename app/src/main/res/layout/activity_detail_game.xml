@@ -49,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentLeft="true"
+        android:contentDescription="box_helper"
         android:src="@drawable/baseline_rectable_transparent"
         android:layout_alignParentTop="true"
         android:alpha="0.3"

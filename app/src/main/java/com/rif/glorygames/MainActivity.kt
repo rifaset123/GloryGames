@@ -1,5 +1,6 @@
 package com.rif.glorygames
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -21,11 +22,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
 
+    @SuppressLint("CommitTransaction")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        enableEdgeToEdge()
         setSupportActionBar(binding.appBarMain.toolbar)
 
         drawerLayout = binding.drawerLayout
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    @SuppressLint("CommitTransaction")
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var fragment: Fragment? = null
         var title = getString(R.string.app_name)

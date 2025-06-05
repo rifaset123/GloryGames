@@ -33,6 +33,15 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.setOnApplyWindowInsetsListener { _, insets ->
+            binding.rvTourism.setPadding(
+                insets.systemWindowInsetLeft,
+                insets.systemWindowInsetTop,
+                insets.systemWindowInsetRight,
+                insets.systemWindowInsetBottom
+            )
+            insets
+        }
 
         if (activity != null) {
 

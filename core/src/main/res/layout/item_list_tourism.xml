@@ -15,6 +15,7 @@
             android:id="@+id/ivGame"
             android:layout_width="135dp"
             android:layout_height="145dp"
+            android:contentDescription="image_placeholder"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
