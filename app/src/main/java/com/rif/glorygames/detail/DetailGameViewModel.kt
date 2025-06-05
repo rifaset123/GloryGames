@@ -9,6 +9,6 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailGameViewModel @Inject constructor(private val gameUseCase: GameUseCase) : ViewModel() {
     fun setFavoriteTourism(game: Game, newStatus:Boolean) =
-        gameUseCase.setFavoriteTourism(game, newStatus)
+        gameUseCase.setFavoriteGame(game, newStatus)
 }
 

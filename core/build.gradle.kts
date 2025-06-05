@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.rif.glorygames.core"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
@@ -65,4 +65,10 @@ dependencies {
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+
+    implementation (libs.roundedimageview)
+    implementation(libs.hilt.android)
+
+    implementation(libs.android.database.sqlcipher)
+    implementation(libs.androidx.sqlite.ktx)
 }

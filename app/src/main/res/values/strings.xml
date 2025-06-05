@@ -11,4 +11,11 @@
     <string name="title_activity_detail_home">DetailHomeActivity</string>
     <string name="no_data">Empty data</string>
     <string name="something_wrong">Oops.. something went wrong</string>
+    <string name="sample_text">Sample Text</string>
+    <string name="text_total_ratings">Total Ratings:</string>
+    <string name="text_playtime">Playtime :</string>
+    <string name="text_rating">Rating :</string>
+    <string name="text_detail_dummy">(API does not include description) Description not available</string>
+    <string name="text_12_june_2025">12 June 2025</string>
+    <string name="title_favorite">Favorite</string>
 </resources>

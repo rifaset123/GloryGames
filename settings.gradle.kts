@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Glory Games"
 include(":app")
 include(":core")
+include(":favorite")

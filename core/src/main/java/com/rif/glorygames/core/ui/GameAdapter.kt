@@ -32,9 +32,10 @@ class GameAdapter : ListAdapter<Game, GameAdapter.ListViewHolder>(DIFF_CALLBACK)
         fun bind(data: Game) {
             Glide.with(itemView.context)
                 .load(data.backgroundImage)
-                .into(binding.ivItemImage)
-            binding.tvItemTitle.text = data.name
-            binding.tvItemSubtitle.text = data.releaseDate
+                .into(binding.ivGame)
+            binding.tvName.text = data.name
+            binding.tvReleaseDate.text = data.releaseDate
+            binding.tvRating.text = data.rating.toString()
         }
 
         init {

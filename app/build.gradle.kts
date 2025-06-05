@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.rif.glorygames"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.rif.glorygames"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -22,11 +22,15 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
@@ -40,14 +44,24 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    hilt {
+        enableAggregatingTask = true
+    }
+    dynamicFeatures += setOf(":favorite")
 }
 
 dependencies {
     implementation(project(":core"))
-
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
 
     implementation(libs.hilt.android)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     ksp(libs.hilt.android.compiler)
+    implementation (libs.android.gif.drawable)
+
+    debugImplementation(libs.leakcanary.android)
 }
